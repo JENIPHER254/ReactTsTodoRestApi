@@ -8,3 +8,4 @@ const pool=createPool({
     database:"todo_project",
     connectionLimit:10
 })
+module.exports = pool;
