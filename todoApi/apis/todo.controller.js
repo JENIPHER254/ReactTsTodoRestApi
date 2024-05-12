@@ -1,28 +1,76 @@
-const { create } = require("./todo.servicesjs");
+const { read } = require("./todo.servicesjs");
+const { create, deleteTodo } = require("./todo.servicesjs");
 
 //main module for all controllers
-module.exports={
+module.exports = {
+  /**
+   *
+   * create todoItem controller
+   *
+   * */
+  createTodoItem: (req, res) => {
+    //get request body
+    const body = req.body;
+    //call create service
+    create(body, (err, request) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database connection error ...",
+        });
+      }
+      return res.status(200).json({
+        success: 1,
+        data: request,
+      });
+    });
+  },
+  /**
+   *
+   * delete todoItem controller
+   *
+   * */
+  deleteTodoItem: (req, res) => {
+    //get request body
+    const body = req.body;
+    //call create service
+    deleteTodo(body, (err, request) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database connection error ...",
+        });
+      }
+      return res.status(200).json({
+        success: 1,
+        data: request,
+      });
+    });
+  },
 
-    //create todoItem controller
-    createTodoItem:(req,res)=>{
-
-        //get request body
-        const body = req.body;
-        //call create service
-        create(body,(err,request)=>{
-            if(err){
-                console.log(err);
-                return res.status(500).json(
-                    {
-                        success:0,
-                        message:"Database connection error ..."
-                    }
-                )
-            }
-            return res.status(200).json({
-                success:1,
-                data: request
-            })
-        })
-    }
-}
+/**
+   *
+   * select todoItem controller
+   *
+   * */
+selectTodoItem: (req, res) => {
+    //get request body
+    const body = req.body;
+    //call create service
+    read(body, (err, request) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database connection error ...",
+        });
+      }
+      return res.status(200).json({
+        success: 1,
+        data: request,
+      });
+    });
+  },
+};
