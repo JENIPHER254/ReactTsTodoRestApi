@@ -3,6 +3,8 @@ import "./App.css";
 import {Provider} from 'react-redux';
 import HeaderSection from "./components/header";
 import InputField from "./components/inputField";
+import FilterButton from "./components/filterButton";
+import SearchButton from "./components/search";
 
 
 function App() {
@@ -15,6 +17,12 @@ function App() {
         
         {/* input field section */}
         <InputField></InputField>
+
+        {/* filter and search */}
+      <div className="flex justify-between  items-center">
+          <FilterButton></FilterButton>
+          <SearchButton></SearchButton>
+      </div>
         
       </div>
 

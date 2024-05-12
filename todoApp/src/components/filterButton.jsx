@@ -1,0 +1,25 @@
+const FilterButton = () => {
+    
+  return (
+    <div className="flex items-center mb-4">
+      <select
+        type="text"
+        id="search"
+        name="search"
+        placeholder="search ..."
+        className="flex-grow px-7 py-2 text-sm rounded border-gray-300 focus:outline-none focus:border-blue-500 border-b-2"
+      >
+        <option value="ALL">Default</option>
+        <option value="COMPLETED">Completed</option>
+        <option value="INCOMPLETE">Incomplete</option>
+      </select>
+      <button
+       
+        className="ml-2 p-2 text-sm bg-purple-400 rounded hover:bg-purple-600  text-white"
+      >
+        Mark all Completed
+      </button>
+    </div>
+  );
+};
+export default FilterButton;
