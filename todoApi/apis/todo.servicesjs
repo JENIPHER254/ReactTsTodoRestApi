@@ -55,15 +55,42 @@ module.exports = {
    * ! Service 2
    */
 /**
-   * Service 2:
+   * Service 3:
    *
    * Delete service
-   * If Successful user will be able to delete a todo task from the db
+   * If Successful user will be able to read and display  tasks from the db
    */
 read: (data, callback) => {
     pool.query(
-      `select * from todo_items where id=?`,
+      `select * from todo_items`,
+     
+      (error, result, fields) => {
+        if (error) {
+          console.log(error);
+          return callback(error);
+        }
+        return callback(null, result);
+      }
+    );
+  },
+
+  /**
+   *
+   * ! Service 3
+   */
+
+/**
+   * Service 4:
+   *
+   * Update service
+   * If Successful user will be able to update a  task the db
+   */
+update: (data, callback) => {
+    pool.query(
+      `update todo_items set todo_item=?, todo_item_status=? where id=?`,
       [
+        data.todo_item, 
+        data.todo_item_status,
         data.id 
     ],
       (error, result, fields) => {
@@ -78,6 +105,6 @@ read: (data, callback) => {
 
   /**
    *
-   * ! Service 3
+   * ! Service 4
    */
 };
