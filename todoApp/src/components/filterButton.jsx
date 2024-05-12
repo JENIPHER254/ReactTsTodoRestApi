@@ -1,8 +1,21 @@
+import { useDispatch , useSelector} from "react-redux";
+import { filterTodo, markAllCompleted } from "../../redux/actions";
+
 const FilterButton = () => {
-    
+    const dispatch = useDispatch();
+    const currentFilter =  useSelector((state)=> state.filter);
+
+    // handle filter event
+    const handleFilter = (filter)=>{
+        dispatch(filterTodo(filter))
+
+    }
+
   return (
     <div className="flex items-center mb-4">
       <select
+       value={currentFilter}
+       onChange={(e)=>handleFilter(e.target.value)}
         type="text"
         id="search"
         name="search"
@@ -14,7 +27,7 @@ const FilterButton = () => {
         <option value="INCOMPLETE">Incomplete</option>
       </select>
       <button
-       
+        onClick={()=> dispatch(markAllCompleted())}
         className="ml-2 p-2 text-sm bg-purple-400 rounded hover:bg-purple-600  text-white"
       >
         Mark all Completed

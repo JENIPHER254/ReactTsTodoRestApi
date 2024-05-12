@@ -38,7 +38,7 @@ export const markIncomplete = (id)=>({
 })
 
 // filter action
-export const filter = (filter)=>({
+export const filterTodo = (filter)=>({
     type: FILTER,
     payload: {filter}
 })
