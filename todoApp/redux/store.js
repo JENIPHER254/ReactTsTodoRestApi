@@ -4,7 +4,7 @@ import todoReducer from './reducers';
 /**
  * connecting app to db via api
  * 
- * step1: import middle ware
+ * step1: logger for getting easy system logs
  */
 
 // connect with browser redux extension
