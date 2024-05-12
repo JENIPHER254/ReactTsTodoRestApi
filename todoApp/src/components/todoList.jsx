@@ -25,7 +25,7 @@ const TodoList = () => {
     <div>
      
       <ul>
-        <li className="text-sm pl-2 text-gray-400 font-bold">All Available Tasks here ...</li>
+        <li className="text-sm pl-2 text-gray-400 font-bold mb-5">All Available Tasks here ...</li>
           {filteredTodo.map((todo, index)=>
            <Item key={index} todo={todo} index={index}></Item>
           )} 

@@ -23,7 +23,7 @@ export const deleteTodo =(id)=>({
 // mark completed action
 export const markCompleted =(id)=>({
     type: MARK_COMPLETED,
-    payload: id
+    payload: {id}
 })
 
 // mark all completed action (receives nothing)

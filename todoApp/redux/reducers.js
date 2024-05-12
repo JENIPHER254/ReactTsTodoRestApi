@@ -32,7 +32,7 @@ const todoReducer = (state = initialState, action) => {
             return {
                 todo: state.todo.filter((todo, index) => index !== action.payload.id),
                 filter: state.filter,
-                searchTerm: state.filter // This line might be incorrect, it should probably be searchTerm: state.searchTerm
+                searchTerm: state.searchTerm 
             };
 
         case MARK_COMPLETED:
@@ -76,7 +76,7 @@ const todoReducer = (state = initialState, action) => {
             };
 
         default:
-            // Returning the current state for unknown actions
+           
             return state;
     }
 };
