@@ -5,6 +5,7 @@ import HeaderSection from "./components/header";
 import InputField from "./components/inputField";
 import FilterButton from "./components/filterButton";
 import SearchButton from "./components/search";
+import TodoList from "./components/todoList";
 
 
 function App() {
@@ -24,7 +25,11 @@ function App() {
           <SearchButton></SearchButton>
       </div>
         
+        {/* todoList */}
+        <TodoList></TodoList>
       </div>
+
+
 
     </Provider>
   );

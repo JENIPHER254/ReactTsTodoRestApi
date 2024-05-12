@@ -1,26 +1,37 @@
 import { useSelector } from "react-redux";
+import { Item } from "./todoIItem";
 
 const TodoList = () => {
-  const filteredToDo = useSelector((state) => {
+  const filteredTodo = useSelector((state) => {
     const todo = state.todo;
     const filter = state.filter;
-    const searchTerm = state.searchTerm;
+    const searchTerm = state.searchTerm.toLowerCase();
 
+    
     return todo.filter((todo) => {
       const matchFilter =
         (filter === "COMPLETED" && todo.completed) ||
         (filter === "INCOMPLETE" && !todo.completed) ||
-        filter === "ALL";
+       ( filter === "ALL");
 
       const matchSearch = todo.text.toLowerCase().includes(searchTerm);
 
       return matchFilter && matchSearch;
     });
   });
-  console.log('Filtered TodoList: ' , filteredToDo);
+  
+  console.log('Filtered TodoList: ' , filteredTodo);
   return (
     <div>
-      <h1>TODO LIST</h1>
+     
+      <ul>
+        <li className="text-sm pl-2 text-gray-400 font-bold">All Available Tasks here ...</li>
+          {filteredTodo.map((todo, index)=>
+           <Item key={index} todo={todo} index={index}></Item>
+          )} 
+      
+      </ul>
+
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo, updateSearchTerm } from "../../redux/actions";
+import { addTodo } from "../../redux/actions";
 
 const InputField = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const [newTodoText, setNewTodoText] = useState("");
 
   console.log(newTodoText);
@@ -17,7 +17,7 @@ const InputField = () => {
   const handleADDTodoClick = () => {
     if (newTodoText.trim() !== "") {
       handleADDTodo(newTodoText.trim());
-      setNewTodoText = "";
+      setNewTodoText("");
     }
   };
   

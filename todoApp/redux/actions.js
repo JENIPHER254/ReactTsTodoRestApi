@@ -2,9 +2,9 @@ import {ADD_TODO, DELETE_TODO, FILTER, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_
 
 
 // add item action
-export const addTodo = (todoItem) =>({
+export const addTodo = (text) =>({
     type: ADD_TODO,
-    payload: {todoItem},
+    payload: {text},
 
 });
 

@@ -1,5 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import {  updateSearchTerm } from "../../redux/actions";
 
 const SearchButton = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +22,7 @@ const SearchButton = () => {
         className="flex-grow p-3 text-sm border-gray-300 focus:outline-none focus:border-blue-500 border-b-2"
       />
       <button
-       
+      
         className="ml-2 p-3 text-sm bg-blue-400 rounded hover:bg-blue-600 font-bold text-white"
       >
         <FaSearch></FaSearch>
