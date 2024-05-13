@@ -13,3 +13,4 @@ export const FILTER = "FILTER";
  * FETCHING DB ITEMS AND CONSUMING API
  */
 export const FETCH_TODO = "FETCH_TODO";
+export const DELETE_TODO_ITEM = "DELETE_TODO_ITEM";
