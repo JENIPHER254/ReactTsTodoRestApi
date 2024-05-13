@@ -3,11 +3,11 @@ import { Item } from "./todoIItem";
 
 const TodoList = () => {
   const filteredTodo = useSelector((state) => {
+    const todos=state.todos;
     const todo = state.todo;
     const filter = state.filter;
-    const searchTerm = state.searchTerm.toLowerCase();
-
-    
+    const searchTerm = state.searchTerm;
+  
     return todo.filter((todo) => {
       const matchFilter =
         (filter === "COMPLETED" && todo.completed) ||

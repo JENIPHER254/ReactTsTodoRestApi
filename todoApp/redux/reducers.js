@@ -1,8 +1,9 @@
-import { ADD_TODO, DELETE_TODO, FILTER, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_INCOMPLETE, TOGGLE_TODO, UPDATE__SEARCH_TERM } from "./actionTypes";
+import { ADD_TODO, DELETE_TODO, FETCH_TODO, FILTER, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_INCOMPLETE, TOGGLE_TODO, UPDATE__SEARCH_TERM } from "./actionTypes";
 
 // Initial state object
 const initialState = {
     todo: [],
+    todos:[],
     filter: "ALL",
     searchTerm: "",
 };
@@ -11,6 +12,28 @@ const initialState = {
 const todoReducer = (state = initialState, action) => {
     // Switch statement to handle different action types
     switch (action.type) {
+        
+        /**
+         * 
+         * CONSUMING GET API
+         * Fetching database items
+         * 
+         */
+        case FETCH_TODO:
+            
+            return {
+                todo: state.todo,
+                todos:state.todos,
+                filter: state.filter,
+                searchTerm: state.searchTerm,
+                
+            };
+         /**
+         * 
+         * CONSUMING GET API
+         * Fetching database items
+         * 
+         */
         case ADD_TODO:
             // Adding a new todo item to the list
             return {

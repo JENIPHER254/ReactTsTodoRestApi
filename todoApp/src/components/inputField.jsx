@@ -1,7 +1,7 @@
 import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../redux/actions";
+import { addTodo, fetchTodos } from "../../redux/actions";
 
 const InputField = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,17 @@ const InputField = () => {
       setNewTodoText("");
     }
   };
-  
+  const handleClick = () => {
+    // Dispatch the fetchTodos async thunk
+    dispatch(fetchTodos())
+      .unwrap()
+      .then((result) => {
+        console.log('Fetched todos:', result); // Log the fetched todos
+      })
+      .catch((error) => {
+        console.error('Failed to fetch todos:', error);
+      });
+  };
   return (
     <div>
       <div className="flex items-center mb-7">
@@ -35,6 +45,12 @@ const InputField = () => {
         />
         <button
           onClick={handleADDTodoClick}
+          className="ml-2 p-4 bg-blue-400 rounded hover:bg-blue-600 font-bold text-white"
+        >
+          <FaPlus></FaPlus>
+        </button>
+        <button
+           onClick={handleClick}
           className="ml-2 p-4 bg-blue-400 rounded hover:bg-blue-600 font-bold text-white"
         >
           <FaPlus></FaPlus>
