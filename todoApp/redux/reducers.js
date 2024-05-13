@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, FETCH_TODO, FILTER, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_INCOMPLETE, TOGGLE_TODO, UPDATE__SEARCH_TERM } from "./actionTypes";
+import { ADD_TODO, DELETE_TODO, DELETE_TODO_ITEM, FETCH_TODO, FILTER, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_INCOMPLETE, TOGGLE_TODO, UPDATE__SEARCH_TERM } from "./actionTypes";
 
 // Initial state object
 const initialState = {
@@ -31,6 +31,27 @@ const todoReducer = (state = initialState, action) => {
          /**
          * 
          * CONSUMING GET API
+         * Fetching database items
+         * 
+         */
+        /**
+         * 
+         * CONSUMING DELETE API
+         * Fetching database items
+         * 
+         */
+        case DELETE_TODO_ITEM:
+            
+            return {
+                todo: state.todo,
+                todos:state.todos,
+                filter: state.filter,
+                searchTerm: state.searchTerm,
+                
+            };
+         /**
+         * 
+         * CONSUMING DELETE API
          * Fetching database items
          * 
          */
