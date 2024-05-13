@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   ADD_TODO,
   DELETE_TODO,
+  DELETE_TODO_ITEM,
   FETCH_TODO,
   FILTER,
   MARK_ALL_COMPLETED,
@@ -29,6 +30,15 @@ export const fetchTodos = createAsyncThunk(FETCH_TODO, async () => {
       throw new Error('Failed to fetch todos');
     }
   });
+
+export const deleteTodoItem = createAsyncThunk(DELETE_TODO_ITEM, async(id)=>{
+  try{
+    const response = await axios.delete(`http://localhost:3000/api/`);
+    return response.data;
+  }catch(error){
+     throw new Error('Failed to delete todos');
+  }
+});
 /**
  * 
  * 
