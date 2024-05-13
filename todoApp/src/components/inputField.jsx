@@ -25,10 +25,10 @@ const InputField = () => {
     dispatch(fetchTodos())
       .unwrap()
       .then((result) => {
-        console.log('Fetched todos:', result); // Log the fetched todos
+        console.log("Fetched todos:", result); // Log the fetched todos
       })
       .catch((error) => {
-        console.error('Failed to fetch todos:', error);
+        console.error("Failed to fetch todos:", error);
       });
   };
   return (
@@ -49,14 +49,17 @@ const InputField = () => {
         >
           <FaPlus></FaPlus>
         </button>
+        {/*
+        
+        ==============================GET API CONSUMPTION TEST ============================
+        
         <button
            onClick={handleClick}
           className="ml-2 p-4 bg-blue-400 rounded hover:bg-blue-600 font-bold text-white"
         >
           <FaPlus></FaPlus>
-        </button>
+        </button> */}
       </div>
-     
     </div>
   );
 };
