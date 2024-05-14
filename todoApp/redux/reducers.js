@@ -1,6 +1,7 @@
 import {
   ADD_TODO,
   DELETE_TODO,
+  DELETE_TODO_ITEM,
   FETCH_TODO,
   FILTER,
   MARK_ALL_COMPLETED,
@@ -62,6 +63,13 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         todo: state.todo.filter((todo) => todo.id !== action.payload.id),
       };
+    
+    case DELETE_TODO_ITEM:
+        return {
+          todo: state.todo.filter((todo, index) => index !== action.payload.id),
+          filter: state.filter,
+          searchTerm: state.searchTerm,
+        };
 
     case MARK_COMPLETED:
       // Marking a todo item as completed

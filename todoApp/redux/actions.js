@@ -3,6 +3,7 @@ import axios from "axios";
 import {
   ADD_TODO,
   DELETE_TODO,
+  DELETE_TODO_ITEM,
   FETCH_TODO,
   FILTER,
   MARK_ALL_COMPLETED,
@@ -90,6 +91,11 @@ export const deleteTodoItem = createAsyncThunk(DELETE_TODO, async (id) => {
     throw new Error("Failed to delete todo");
   }
 });
+//delete from store
+export const deleteTodo=(id)=>({
+  type: DELETE_TODO_ITEM,
+  payload: { id },
+})
 //toggle item action
 export const toggleTodo = (id) => ({
   type: TOGGLE_TODO,
