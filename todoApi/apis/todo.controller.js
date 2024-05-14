@@ -1,5 +1,5 @@
 
-const { create, deleteTodo, read ,update } = require("./todo.servicesjs");
+const { create, deleteTodo, read ,update } = require("./todo.services.js");
 
 //main module for all controllers
 module.exports = {
