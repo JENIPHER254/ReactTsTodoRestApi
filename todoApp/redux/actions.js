@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 import {
   ADD_TODO,
   ADD_TODO_ITEM,
@@ -16,59 +16,58 @@ import {
 } from "./actionTypes";
 
 /**
- * 
- * 
+ *
+ *
  * CONSUMING GET API
  *  Async thunk action creator to fetch todos from API endpoint
- * 
- * 
+ *
+ *
  */
 
-export const fetchTodos = createAsyncThunk(
-  FETCH_TODO,
-  async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/api/');
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to fetch todos');
-    }
+export const fetchTodos = createAsyncThunk(FETCH_TODO, async () => {
+  try {
+    const response = await axios.get("http://localhost:3000/api/");
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to fetch todos");
   }
-);
+});
 
-export const deleteTodoItem = createAsyncThunk(
-  DELETE_TODO_ITEM,
-  async (id) => {
-    try {
-      console.log(id)
-      const response = await axios.delete(`http://localhost:3000/api/`,{ data: { id } });
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to delete todo');
-    }
+export const deleteTodoItem = createAsyncThunk(DELETE_TODO_ITEM, async (id) => {
+  try {
+    console.log(id);
+    const response = await axios.delete(`http://localhost:3000/api/`, {
+      data: { id },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error("Failed to delete todo");
   }
-);
+});
 
 export const updateTodoItem = createAsyncThunk(
   UPDATE_TODO_ITEM,
   async ({ id, todoData }) => {
     try {
-      const response = await axios.put(`http://localhost:3000/api/`, { id, ...todoData });
+      const response = await axios.put(`http://localhost:3000/api/`, {
+        id,
+        ...todoData,
+      });
       return response.data;
     } catch (error) {
-      throw new Error('Failed to update todo');
+      throw new Error("Failed to update todo");
     }
   }
 );
 /**
- * 
- * 
+ *
+ *
  * CONSUMING GET API
  *  Async thunk action creator to fetch todos from API endpoint
- * 
- * 
+ *
+ *
  */
-  
+
 // add item action
 export const addTodoAndItem = (todoName, todoStatus) => async (dispatch) => {
   const todoData = {
@@ -81,13 +80,13 @@ export const addTodoAndItem = (todoName, todoStatus) => async (dispatch) => {
     dispatch({ type: ADD_TODO, payload: { text: todoName } });
 
     // Sending a POST request to the API endpoint
-    const response = await axios.post('http://localhost:3000/api/', todoData);
+    const response = await axios.post("http://localhost:3000/api/", todoData);
 
     // Dispatching the action to handle the response data
     dispatch({ type: ADD_TODO_ITEM, payload: response.data });
   } catch (error) {
     // Handle error if necessary
-    console.error('Failed to add todo and item:', error);
+    console.error("Failed to add todo and item:", error);
   }
 };
 

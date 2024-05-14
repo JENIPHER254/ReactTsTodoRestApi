@@ -14,5 +14,4 @@ export const FILTER = "FILTER";
  */
 export const FETCH_TODO = "FETCH_TODO";
 export const UPDATE_TODO_ITEM = "DELETE_TODO_ITEM";
-export const ADD_TODO_ITEM = "DELETE_TODO_ITEM";
 export const DELETE_TODO_ITEM = "DELETE_TODO_ITEM";
