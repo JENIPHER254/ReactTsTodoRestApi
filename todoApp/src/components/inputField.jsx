@@ -1,11 +1,20 @@
 import { FaPlus } from "react-icons/fa6";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo, fetchTodos } from "../../redux/actions";
+import {
+  addTodo,
+  addTodoItem,
+  deleteTodoItem,
+  fetchTodos,
+  updateTodoItem,
+} from "../../redux/actions";
 
 const InputField = () => {
   const dispatch = useDispatch();
   const [newTodoText, setNewTodoText] = useState("");
+  const [newTodosText, setNewTodosText] = useState("");
+  const [todoToUpdate, setTodoToUpdate] = useState(null);
+  const [todoToDelete, setTodoToDelete] = useState(null);
 
   console.log(newTodoText);
 
@@ -20,17 +29,7 @@ const InputField = () => {
       setNewTodoText("");
     }
   };
-  const handleClick = () => {
-    // Dispatch the fetchTodos async thunk
-    dispatch(fetchTodos())
-      .unwrap()
-      .then((result) => {
-        console.log("Fetched todos:", result); // Log the fetched todos
-      })
-      .catch((error) => {
-        console.error("Failed to fetch todos:", error);
-      });
-  };
+
   return (
     <div>
       <div className="flex items-center mb-7">
@@ -49,16 +48,6 @@ const InputField = () => {
         >
           <FaPlus></FaPlus>
         </button>
-        {/*
-        
-        ==============================GET API CONSUMPTION TEST ============================
-        
-        <button
-           onClick={handleClick}
-          className="ml-2 p-4 bg-blue-400 rounded hover:bg-blue-600 font-bold text-white"
-        >
-          <FaPlus></FaPlus>
-        </button> */}
       </div>
     </div>
   );

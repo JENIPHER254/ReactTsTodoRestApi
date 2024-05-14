@@ -40,7 +40,8 @@ export const deleteTodoItem = createAsyncThunk(
   DELETE_TODO_ITEM,
   async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/api/`,id);
+      console.log(id)
+      const response = await axios.delete(`http://localhost:3000/api/`,{ data: { id } });
       return response.data;
     } catch (error) {
       throw new Error('Failed to delete todo');
