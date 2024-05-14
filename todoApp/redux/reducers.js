@@ -37,13 +37,6 @@ const todoReducer = (state = initialState, action) => {
         todos: action.payload,
       };
 
-    case ADD_TODO_ITEM:
-      // Reducer for adding a new todo item
-      return {
-        ...state,
-        todos: [...state.todos, action.payload],
-      };
-
     case DELETE_TODO_ITEM:
       // Reducer for deleting a todo item
       return {
@@ -54,11 +47,12 @@ const todoReducer = (state = initialState, action) => {
     case ADD_TODO:
       // Adding a new todo item to the list
       return {
-        todo: [...state.todo, { text: action.payload.text, completed: false }],
-        filter: state.filter,
-        searchTerm: state.searchTerm,
+        ...state,
+        todo: [
+          ...state.todo,
+          { text: action.payload.text, completed: false }, // Assuming the default status is false
+        ],
       };
-
     case TOGGLE_TODO:
       // Toggling the completion status of a todo item
       return {

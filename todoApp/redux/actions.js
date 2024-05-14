@@ -49,18 +49,6 @@ export const deleteTodoItem = createAsyncThunk(
   }
 );
 
-export const addTodoItem = createAsyncThunk(
-  ADD_TODO_ITEM,
-  async (todoData) => {
-    try {
-      const response = await axios.post('http://localhost:3000/api/', todoData);
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to add todo');
-    }
-  }
-);
-
 export const updateTodoItem = createAsyncThunk(
   UPDATE_TODO_ITEM,
   async ({ id, todoData }) => {
@@ -82,10 +70,26 @@ export const updateTodoItem = createAsyncThunk(
  */
   
 // add item action
-export const addTodo = (text) => ({
-  type: ADD_TODO,
-  payload: { text },
-});
+export const addTodoAndItem = (todoName, todoStatus) => async (dispatch) => {
+  const todoData = {
+    todo_item: todoName,
+    todo_item_status: todoStatus,
+  };
+
+  try {
+    // Dispatching the action to update the state with the new todo
+    dispatch({ type: ADD_TODO, payload: { text: todoName } });
+
+    // Sending a POST request to the API endpoint
+    const response = await axios.post('http://localhost:3000/api/', todoData);
+
+    // Dispatching the action to handle the response data
+    dispatch({ type: ADD_TODO_ITEM, payload: response.data });
+  } catch (error) {
+    // Handle error if necessary
+    console.error('Failed to add todo and item:', error);
+  }
+};
 
 //toggle item action
 export const toggleTodo = (id) => ({
