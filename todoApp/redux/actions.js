@@ -39,6 +39,23 @@ export const deleteTodoItem = createAsyncThunk(DELETE_TODO_ITEM, async(id)=>{
      throw new Error('Failed to delete todos');
   }
 });
+export const addTodoItem = createAsyncThunk(FETCH_TODO, async () => {
+  try {
+    const response = await axios.post(`http://localhost:3000/api/`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to fetch todos');
+  }
+});
+
+export const updateTodoItem = createAsyncThunk(DELETE_TODO_ITEM, async(id)=>{
+try{
+  const response = await axios.put(`http://localhost:3000/api/`);
+  return response.data;
+}catch(error){
+   throw new Error('Failed to delete todos');
+}
+});
 /**
  * 
  * 
