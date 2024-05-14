@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheck, FaTimes, FaToggleOff, FaToggleOn, FaTrash } from "react-icons/fa"
 import { useDispatch } from "react-redux";
-import { deleteTodo, markCompleted, markIncomplete, toggleTodo } from "../../redux/actions";
+import { deleteTodoItem, markCompleted, markIncomplete, toggleTodo } from "../../redux/actions";
 
 
 export const Item = ({ todo, index }) => {
@@ -28,7 +28,8 @@ export const Item = ({ todo, index }) => {
                 )
             }
            
-            <button onClick={()=> dispatch(deleteTodo(index))} className="mr-2 text-sm bg-red-600 p-2 rounded text-white"><FaTrash/></button>
+           {/* working on it */}
+            <button onClick={()=> dispatch(deleteTodoItem(index))} className="mr-2 text-sm bg-red-600 p-2 rounded text-white"><FaTrash/></button>
         </div>
       </li>
 

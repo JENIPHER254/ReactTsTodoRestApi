@@ -1,8 +1,6 @@
 import {
   ADD_TODO,
-  ADD_TODO_ITEM,
   DELETE_TODO,
-  DELETE_TODO_ITEM,
   FETCH_TODO,
   FILTER,
   MARK_ALL_COMPLETED,
@@ -37,13 +35,6 @@ const todoReducer = (state = initialState, action) => {
         todos: action.payload,
       };
 
-    case DELETE_TODO_ITEM:
-      // Reducer for deleting a todo item
-      return {
-        ...state,
-        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
-      };
-
     case ADD_TODO:
       // Adding a new todo item to the list
       return {
@@ -66,11 +57,10 @@ const todoReducer = (state = initialState, action) => {
       };
 
     case DELETE_TODO:
-      // Deleting a todo item from the list
+      // Filter out the deleted todo from the todos array
       return {
-        todo: state.todo.filter((todo, index) => index !== action.payload.id),
-        filter: state.filter,
-        searchTerm: state.searchTerm,
+        ...state,
+        todo: state.todo.filter((todo) => todo.id !== action.payload.id),
       };
 
     case MARK_COMPLETED:
