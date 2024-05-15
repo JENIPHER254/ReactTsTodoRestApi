@@ -68,10 +68,11 @@ export const addTodoAndItem = (todoName, todoStatus) => async (dispatch) => {
 
     // Sending a POST request to the API endpoint
     const response = await axios.post("http://localhost:3000/api/", todoData);
-
+     alert("item updated");
     // Dispatching the action to handle the response data
     dispatch({ type: ADD_TODO, payload: response.data });
   } catch (error) {
+    alert("item updated");
     // Handle error if necessary
     console.error("Failed to add todo and item:", error);
   }
