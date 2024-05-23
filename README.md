@@ -11,42 +11,43 @@ Currently, two official plugins are available:
 
 ## Introduction
 
-- This project will involve building a To-Do List application using React and TypeScript. It  focuses on implementing various aspects of modern web development, including GitFlow workflow, component reusability, state
-management, API calls, and CRUD operations on the frontend.
+- This project will involve building a To-Do List application using React and TypeScript. It focuses on implementing various aspects of modern web development, including GitFlow workflow, component reusability, state
+  management, API calls, and CRUD operations on the frontend.
 
 ## Requirements
 
 ### GitFlow Workflow
 
 - The project should follows the GitFlow branching model, with branches for feature
-development, release preparation, hot-fixes, and version tags.
+  development, release preparation, hot-fixes, and version tags.
 - It Utilize Git commands effectively for branching, committing, merging, and handling
-conflicts.
+  conflicts.
 - It provides clear and concise commit messages to track changes and updates.
 
 ### Component Reusability
+
 - It Implement reusable components to promote code efficiency and maintainability.
-Identify common UI elements and create components that can be reused across
-different parts of the application.
+  Identify common UI elements and create components that can be reused across
+  different parts of the application.
 - It Utilizes props and state effectively to make components flexible and customizable.
-State Management
+  State Management
 - It Implements state management using a library such as Redux or React Context API.
-Centralize application state to manage data flow and ensure consistency across
-components.
+  Centralize application state to manage data flow and ensure consistency across
+  components.
 - The project demonstrates how to handle state updates efficiently to reflect changes in the UI without unnecessary
-re-renders.
+  re-renders.
 
 ### API Calls
 
 - It utilizes the Integration API calls to fetch, create, update, and delete To-Do list items.
-Utilize asynchronous JavaScript techniques such as promises or async/await to handle
-API requests.
+  Utilize asynchronous JavaScript techniques such as promises or async/await to handle
+  API requests.
 - It Implements error handling to gracefully manage network failures or server errors.
 
 ### CRUD Operations on the Frontend
 
 - It Implements CRUD (Create, Read, Update, Delete) operations for managing To-Do list
-items.
+  items.
 - It has complete user interfaces for adding, viewing, updating, and deleting To-Do list items.
 - There is seamless interaction with the backend API to perform CRUD operations.
 
@@ -57,5 +58,11 @@ items.
 - Redux or React Context API: Libraries for managing application state.
 - Git: Version control system for tracking changes to the codebase.
 - RESTful API: Backend API for handling CRUD operations on To-Do list items.
-Deliverables
+  Deliverables
 - Git repository containing the project codebase with clear commit history.
+
+### PROJECT UI
+
+| Section 1                  |
+| -------------------------- |
+| ![plot](./designs/img.png) |
