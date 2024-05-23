@@ -63,6 +63,6 @@ Currently, two official plugins are available:
 
 ### PROJECT UI
 
-| Section 1                  |
-| -------------------------- |
-| ![plot](./designs/img.png) |
+| Section 1                   |
+| --------------------------- |
+| ![plot](./designs/img1.png) |
